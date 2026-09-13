@@ -1,0 +1,16 @@
+# cv-failover: proxy con failover para cv.victor-service.dev
+# Primario: Pi vía túnel (hostname interno cv-origin) → Netlify → GitHub Pages → 503 inline.
+# La ruta (routes) también queda versionada aquí.
+name = "cv-failover"
+main = "src/worker.js"
+compatibility_date = "2026-09-13"
+
+[vars]
+PRIMARY = "https://cv-origin.victor-service.dev"
+FALLBACK_1 = "https://aragorn7372.netlify.app/"
+FALLBACK_2 = "https://aragorn7372.github.io/"
+FAILOVER_TIMEOUT_MS = "6000"
+
+[[routes]]
+pattern = "cv.victor-service.dev/*"
+zone_name = "victor-service.dev"
