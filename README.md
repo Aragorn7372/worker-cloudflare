@@ -1,7 +1,7 @@
 # worker-cloudflare
 
 Proxy con failover para `cv.victor-service.dev`, desplegado como Cloudflare Worker
-(`cv-failover`) con Git integration sobre `main`.
+(`worker-cloudflare`, código en `cv-failover/`) con Git integration sobre `main`.
 
 ## Cadena de orígenes
 

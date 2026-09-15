@@ -29,6 +29,8 @@ export default {
     const debugSecret = env.DEBUG_SECRET || "";
     const debugOk = debugSecret !== "" && request.headers.get("x-debug") === debugSecret;
     if (url.pathname === "/__cv-origin") {
+      // Diagnóstico sin datos sensibles: solo si hay secret cargado en este deploy.
+      console.log("[cv-debug] __cv-origin called, hasSecret=" + (debugSecret !== ""));
       if (!debugOk) {
         return new Response("Not found", { status: 404 });
       }

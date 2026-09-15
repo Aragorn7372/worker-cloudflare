@@ -1,7 +1,8 @@
 # cv-failover: proxy con failover para cv.victor-service.dev
 # Primario: Pi vía túnel (hostname interno cv-origin) → Netlify → GitHub Pages → 503 inline.
 # La ruta (routes) también queda versionada aquí.
-name = "cv-failover"
+# name = nombre del proyecto en el dashboard (worker-cloudflare).
+name = "worker-cloudflare"
 main = "src/worker.js"
 compatibility_date = "2026-09-13"
 
