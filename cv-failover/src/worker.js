@@ -100,14 +100,14 @@ async function finalize(res, label, isFallback, request, cache, cacheKey, ctx, e
     for (const b of [env.FALLBACK_1, env.FALLBACK_2]) {
       if (b) html = html.split(norm(b)).join("https://cv.victor-service.dev");
     }
-    headers.set("cache-control": `public, max-age=${FALLBACK_TTL_S}`);
+    headers.set("cache-control", `public, max-age=${FALLBACK_TTL_S}`);
     const out = new Response(html, { status: res.status, headers });
     ctx.waitUntil(cache.put(cacheKey, out.clone()));
     return out;
   }
   // Resto (assets, PDF, primario en streaming): pasa el body sin bufferizar
   if (isFallback && request.method === "GET") {
-    headers.set("cache-control": `public, max-age=${FALLBACK_TTL_S}`);
+    headers.set("cache-control", `public, max-age=${FALLBACK_TTL_S}`);
     const out = new Response(res.body, { status: res.status, headers });
     ctx.waitUntil(cache.put(cacheKey, out.clone()));
     return out;
