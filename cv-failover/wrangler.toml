@@ -9,7 +9,10 @@ compatibility_date = "2026-09-13"
 PRIMARY = "https://cv-origin.victor-service.dev"
 FALLBACK_1 = "https://aragorn7372.netlify.app/"
 FALLBACK_2 = "https://aragorn7372.github.io/"
-FAILOVER_TIMEOUT_MS = "6000"
+FAILOVER_TIMEOUT_MS = "2500"
+# DEBUG_SECRET se define como secret en el dashboard (nunca aquí):
+# echo -n "valor" | npx wrangler secret put DEBUG_SECRET
+# Sin secret, el debug (?cv-origin, /__cv-origin) responde 404.
 
 [[routes]]
 pattern = "cv.victor-service.dev/*"
